@@ -7,4 +7,3 @@ You would make a ship sail against the wind and current by lighting a bonfire un
 You can have the model-t in any color, so long as it's black
 
 
-
