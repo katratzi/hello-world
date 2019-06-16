@@ -40,18 +40,57 @@
 
         /* images in paragraphs are nice and small */
         p img {
-            width: 64px;
+            width: 256px;
+            /* aligns inline elements together */
+            vertical-align: middle;
         }
 
-        img {
-            /* max-width: 240px; */
-        }
-
+/* it takes width from above to breaks ratio, override with auto */
         img.thumb {
             height: 96px;
+            width: auto;
+        }
+
+        .relativeLeft {
+            position: relative;
+            left: 100px;
+            bottom: 10px;
+        }
+
+        .fixme {
+            /* note order of images defines what sits on top */
+            /* fix with z */
+            z-index: 1;
+            position: fixed;
+            left: 100px;
+            bottom: 10px;
+        }
+
+        .absme {
+            position: absolute;
+            left: 200px;
+            top: 200px;
+        }
+        .relme {
+            position: relative;
+            /* left: 1px;             */
+        }
+        .absmeSmall {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+        
+/* can't get this to work? */
+/* I hate this navigation anyway :P */
+        .stickme {
+            position: sticky; 
+            top: 10px;
+            right: 100px;
         }
 
         div.polaroid {
+            position: relative;
             width: 300px;
             background-color: white;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -61,11 +100,22 @@
             margin: 10px auto;
         }
 
-/* testing...I want to override max width */
+        /* testing...I want to override max width */
         div.polaroid img {
-            width: 100% !important; 
+            width: 100% !important;
         }
 
+        div.button {
+            position: absolute;
+            background: yellow;
+            border-radius: 100%;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            vertical-align: middle;
+            right : -50px;
+            top: -50px;
+        }
         div.container {
             text-align: center;
             padding: 10px 20px;
@@ -103,7 +153,7 @@
 <body>
     <div id="container">
 
-        <h1>Heading h1</h1>
+        <h1 class="stickme">Heading h1</h1>
         <!-- ul>li*8 -->
         <ul>
             <li>Hello</li>
@@ -162,10 +212,75 @@
 
         <div class="polaroid">
             <img src="img/random (19).jpg" alt="ego" style="width:100%">
+            <div class="button">hello</div>
             <div class="container">
                 <p>Goodbye world</p>
             </div>
         </div>
+
+        <div>
+            <img src="img/random (6).jpg" class="fixme">
+            <p>Ullamco ut amet non quis. Exercitation amet ea culpa dolor deserunt duis sunt ad nisi minim. Laboris amet
+                aute commodo duis ullamco. In laboris quis mollit deserunt sit non incididunt et sunt voluptate
+                adipisicing. Anim ipsum aliqua nisi proident nostrud duis esse excepteur laboris. Sit sunt aute mollit
+                aute aliquip deserunt do irure enim.</p>
+        </div>
+
+        <div>
+
+            <p>Amet ullamco occaecat elit adipisicing minim tempor ut. Nostrud <img src="img/random (6).jpg"
+                    class="relativeLeft"> cupidatat tempor pariatur et. Ex cupidatat labore deserunt officia
+                exercitation labore nulla exercitation. Laboris elit sint est exercitation reprehenderit ad aliquip.
+                Tempor enim dolor officia esse velit ad consectetur ut eu incididunt pariatur irure et aliquip. Nostrud
+                culpa fugiat excepteur consequat cupidatat in laboris laboris. Fugiat veniam sint qui enim enim nulla
+                commodo excepteur quis deserunt.</p>
+        </div>
+
+        <div class="testparent">
+
+            <p> <img class="absme" src="img/random (8).jpg"> Occaecat anim nostrud nulla magna id tempor deserunt
+                fugiat. Aliquip culpa Lorem nostrud dolore velit minim quis pariatur sit consectetur esse magna nostrud
+                aliqua. Quis cupidatat adipisicing reprehenderit deserunt ad consequat aliqua. Id enim veniam velit
+                labore exercitation tempor dolor. Excepteur est id veniam laborum ut non ad amet. Esse irure adipisicing
+                do do cillum ex in anim.
+            </p>
+            <p> <img class="absme" src="img/random (8).jpg"> Occaecat anim nostrud nulla magna id tempor deserunt
+                fugiat. Aliquip culpa Lorem nostrud dolore velit minim quis pariatur sit consectetur esse magna nostrud
+                aliqua. Quis cupidatat adipisicing reprehenderit deserunt ad consequat aliqua. Id enim veniam velit
+                labore exercitation tempor dolor. Excepteur est id veniam laborum ut non ad amet. Esse irure adipisicing
+                do do cillum ex in anim.
+            </p>
+            <p> <img class="absme" src="img/random (8).jpg"> Occaecat anim nostrud nulla magna id tempor deserunt
+                fugiat. Aliquip culpa Lorem nostrud dolore velit minim quis pariatur sit consectetur esse magna nostrud
+                aliqua. Quis cupidatat adipisicing reprehenderit deserunt ad consequat aliqua. Id enim veniam velit
+                labore exercitation tempor dolor. Excepteur est id veniam laborum ut non ad amet. Esse irure adipisicing
+                do do cillum ex in anim.
+            </p>
+            <!-- nested absolute positions as child of relative -->
+            <div class="relme">
+                <h1>test</h1>
+                <div class="absmeSmall">
+                    <img src="img/random (9).jpg">
+                    <div class="absmeSmall">
+                            <img src="img/random (9).jpg">
+                            <div class="absmeSmall">
+                                    <img src="img/random (9).jpg">
+                                </div>
+                            </div>
+                </div>
+                
+            </div>
+            <p>
+                Minim nisi duis incididunt dolore officia cillum enim ex eu officia sint in. Lorem magna eiusmod esse labore esse aliquip ad ipsum officia eu ea. Laboris tempor excepteur dolor in consequat minim sunt id consequat non sit consequat excepteur do. Laborum ullamco deserunt dolore veniam ut consequat nulla. Minim ex nisi sunt qui. Do exercitation veniam mollit velit laborum magna commodo id aute mollit aute adipisicing.
+            </p>
+            <div class="stickme">
+            <img src="img/random (13).jpg"></div>
+            <p>
+                    Minim nisi duis incididunt dolore officia cillum enim ex eu officia sint in. Lorem magna eiusmod esse labore esse aliquip ad ipsum officia eu ea. Laboris tempor excepteur dolor in consequat minim sunt id consequat non sit consequat excepteur do. Laborum ullamco deserunt dolore veniam ut consequat nulla. Minim ex nisi sunt qui. Do exercitation veniam mollit velit laborum magna commodo id aute mollit aute adipisicing.
+                </p>
+        </div>
+
+
 
     </div>
 </body>
