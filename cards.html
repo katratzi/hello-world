@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Basic Styling</title>
+    <style>
+        * {
+            /* border: 1px solid red; */
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* my sizes */
+        :root {
+            --polaroid-width: 200px;
+            --badge-size: 48px;
+            --polaroid-corners: calc(var(--badge-size) /2);
+            --border-color: #808080;
+        }
+
+        body {
+            background: #eeeeee;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            line-height: 1.5em;
+        }
+
+
+        div.polaroid {
+            border: 1px solid var(--border-color);
+            width: var(--polaroid-width);
+            background-color: white;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin-bottom: 25px;
+            /* center */
+            display: block;
+            margin: 10px auto;
+            border-radius: var(--polaroid-corners);
+            overflow: hidden;
+        }
+
+
+        div.polaroid img {
+            width: 100%;
+            display: block;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        div.badge {
+            position: absolute;
+            border: 1px solid var(--border-color);
+            background: #f2f2f2;
+            border-radius: 100%;
+            width: var(--badge-size);
+            height: var(--badge-size);
+            /* get the half size for easy calculation */
+            --half-badge-size: calc(var(--badge-size) / -2);
+            bottom: var(--half-badge-size);
+            left: calc(calc(var(--polaroid-width) / 2) + var(--half-badge-size));
+            /* align vertically with grid */
+            /* seeing as we're using grid we'll align all here */
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            align-items: center;
+            justify-items: center;
+            z-index: 1;
+
+            font-size: calc(var(--badge-size) * 0.66);
+            font-weight: bold;
+        }
+
+        div.container {
+            text-align: center;
+            padding: 10px 20px;
+        }
+
+
+        .centered {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+        #container {
+            border: 1px #cccccc solid;
+            padding: 20px 20px 40px 10px;
+            margin-top: 30px;
+            width: 800px;
+            margin: 30px auto;
+            overflow: hidden;
+        }
+
+        #gridify {
+            display: grid;
+            grid-gap: 20px;
+            grid-template-columns: repeat(auto-fit, var(--polaroid-width));
+            justify-content: center;
+
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="gridify">
+
+
+        <div class="polaroid">
+            <div>
+                <img src="img/random (1).jpg" alt="alter" style="width:100%">
+                <div contenteditable="true" class="badge">5</div>
+            </div>
+            <div class="container" contenteditable="true">
+                <p>Hello World</p>
+            </div>
+        </div>
+
+        <div class="polaroid">
+            <div class="test">
+                <img src="img/random (1).png" alt="ego" style="width:100%">
+                <div contenteditable="true" class="badge">5</div>
+            </div>
+
+            <div class="container">
+                <p>Goodbye world</p>
+            </div>
+        </div>
+
+        <div class="polaroid">
+            <div>
+                <img src="img/random (2).jpg" alt="alter" style="width:100%">
+                <div contenteditable="true" class="badge">5</div>
+            </div>
+            <div class="container" contenteditable="true">
+                <p>Hello World</p>
+            </div>
+        </div>
+
+        <div class="polaroid">
+            <div>
+                <img src="img/random (4).jpg" alt="alter" style="width:100%">
+                <div contenteditable="true" class="badge">5</div>
+            </div>
+            <div class="container" contenteditable="true">
+                <p>Hello World</p>
+            </div>
+        </div>
+
+        <div class="polaroid">
+            <div>
+                <img src="img/random (3).jpg" alt="alter" style="width:100%">
+                <div contenteditable="true" class="badge">5</div>
+            </div>
+            <div class="container" contenteditable="true">
+                <p>Hello World</p>
+            </div>
+        </div>
+
+
+        <div class="polaroid">
+            <div>
+                <img src="img/random (10).jpg" alt="alter" style="width:100%">
+                <div contenteditable="true" class="badge">5</div>
+            </div>
+            <div class="container" contenteditable="true">
+                <p>Hello World</p>
+            </div>
+        </div>
+
+
+        <div class="polaroid">
+            <div>
+                <img src="img/random (12).jpg" alt="alter" style="width:100%">
+                <div contenteditable="true" class="badge">5</div>
+            </div>
+            <div class="container" contenteditable="true">
+                <p>Hello World</p>
+            </div>
+        </div>
+
+        <div class="polaroid">
+            <div>
+                <img src="img/random (14).jpg" alt="alter" style="width:100%">
+                <div contenteditable="true" class="badge">5</div>
+            </div>
+            <div class="container" contenteditable="true">
+                <p>Hello World</p>
+            </div>
+        </div>
+
+        <div class="polaroid">
+            <div>
+                <img src="img/random (16).jpg" alt="alter" style="width:100%">
+                <div contenteditable="true" class="badge">5</div>
+            </div>
+            <div class="container" contenteditable="true">
+                <p>Hello World</p>
+            </div>
+        </div>
+
+        <div class="polaroid">
+            <div>
+                <img src="img/random (17).jpg" alt="alter" style="width:100%">
+                <div contenteditable="true" class="badge">5</div>
+            </div>
+            <div class="container" contenteditable="true">
+                <p>Hello World</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
