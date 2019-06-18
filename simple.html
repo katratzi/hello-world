@@ -9,6 +9,13 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --polaroid-width: 300px;
+            --polaroid-corners: 16px;
+            --button-size: 64px;
+        }
+
+
         body {
             background: #eeeeee;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -46,7 +53,7 @@
             vertical-align: middle;
         }
 
-/* it takes width from above to breaks ratio, override with auto */
+        /* it takes width from above to breaks ratio, override with auto */
         img.thumb {
             height: 96px;
             width: auto;
@@ -72,27 +79,29 @@
             left: 200px;
             top: 200px;
         }
+
         .relme {
             position: relative;
             /* left: 1px;             */
         }
+
         .absmeSmall {
             position: absolute;
             left: 20px;
             top: 20px;
         }
-        
-/* can't get this to work? */
-/* I hate this navigation anyway :P */
+
+        /* can't get this to work? */
+        /* I hate this navigation anyway :P */
         .stickme {
-            position: sticky; 
+            position: sticky;
             top: 10px;
             right: 100px;
         }
 
         div.polaroid {
             position: relative;
-            width: 300px;
+            width: var(--polaroid-width);
             background-color: white;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             margin-bottom: 25px;
@@ -104,7 +113,7 @@
 
         /* testing...I want to override max width */
         div.polaroid img {
-            width: 100% !important;            
+            width: 100% !important;
             /* this fixes the gap i was seeing */
             /* could also be done by setting the line height to 0px */
             /* as being inline...you get the line heigth :) */
@@ -113,15 +122,25 @@
 
         div.button {
             position: absolute;
+
             background: yellow;
             border-radius: 100%;
-            width: 64px;
-            height: 64px;
+            width: var(--button-size);
+            height: var(--button-size);
             text-align: center;
-            vertical-align: middle;
-            left : 118px;
-            bottom: -32px;
+            /* get the half size for easy calculation */
+            --half-button-size: calc(var(--button-size) / -2);
+
+            bottom: var(--half-button-size);
+            left: calc(calc(var(--polaroid-width) / 2) + var(--half-button-size));
+
+            /* align vertically with grid */
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            align-items: center;
         }
+
         div.container {
             text-align: center;
             padding: 10px 20px;
@@ -139,7 +158,7 @@
         }
 
         #container {
-            border: 1px #cccccc solid;            
+            border: 1px #cccccc solid;
             padding: 20px 20px 40px 10px;
             margin-top: 30px;
             width: 800px;
@@ -214,22 +233,22 @@
         </p>
 
         <div class="polaroid">
-                <div class="test">
-            <img src="img/random (17).jpg" alt="alter" style="width:100%">
-            <div class="button">hello</div>
-        </div>
-            <div class="container">                    
+            <div class="test">
+                <img src="img/random (17).jpg" alt="alter" style="width:100%">
+                <div class="button">hello</div>
+            </div>
+            <div class="container">
                 <p>Hello WOrld</p>
             </div>
         </div>
 
         <div class="polaroid">
-                <div class="test">
-            <img src="img/random (19).jpg" alt="ego" style="width:100%">            
-            <div class="button">hello</div>
-        </div>
-            
-            <div class="container">                    
+            <div class="test">
+                <img src="img/random (19).jpg" alt="ego" style="width:100%">
+                <div contenteditable="true" class="button">hello</div>
+            </div>
+
+            <div class="container">
                 <p>Goodbye world</p>
             </div>
         </div>
@@ -278,22 +297,30 @@
                 <div class="absmeSmall">
                     <img src="img/random (9).jpg">
                     <div class="absmeSmall">
+                        <img src="img/random (9).jpg">
+                        <div class="absmeSmall">
                             <img src="img/random (9).jpg">
-                            <div class="absmeSmall">
-                                    <img src="img/random (9).jpg">
-                                </div>
-                            </div>
+                        </div>
+                    </div>
                 </div>
-                
+
             </div>
             <p>
-                Minim nisi duis incididunt dolore officia cillum enim ex eu officia sint in. Lorem magna eiusmod esse labore esse aliquip ad ipsum officia eu ea. Laboris tempor excepteur dolor in consequat minim sunt id consequat non sit consequat excepteur do. Laborum ullamco deserunt dolore veniam ut consequat nulla. Minim ex nisi sunt qui. Do exercitation veniam mollit velit laborum magna commodo id aute mollit aute adipisicing.
+                Minim nisi duis incididunt dolore officia cillum enim ex eu officia sint in. Lorem magna eiusmod esse
+                labore esse aliquip ad ipsum officia eu ea. Laboris tempor excepteur dolor in consequat minim sunt id
+                consequat non sit consequat excepteur do. Laborum ullamco deserunt dolore veniam ut consequat nulla.
+                Minim ex nisi sunt qui. Do exercitation veniam mollit velit laborum magna commodo id aute mollit aute
+                adipisicing.
             </p>
             <div class="stickme">
-            <img src="img/random (13).jpg"></div>
+                <img src="img/random (13).jpg"></div>
             <p>
-                    Minim nisi duis incididunt dolore officia cillum enim ex eu officia sint in. Lorem magna eiusmod esse labore esse aliquip ad ipsum officia eu ea. Laboris tempor excepteur dolor in consequat minim sunt id consequat non sit consequat excepteur do. Laborum ullamco deserunt dolore veniam ut consequat nulla. Minim ex nisi sunt qui. Do exercitation veniam mollit velit laborum magna commodo id aute mollit aute adipisicing.
-                </p>
+                Minim nisi duis incididunt dolore officia cillum enim ex eu officia sint in. Lorem magna eiusmod esse
+                labore esse aliquip ad ipsum officia eu ea. Laboris tempor excepteur dolor in consequat minim sunt id
+                consequat non sit consequat excepteur do. Laborum ullamco deserunt dolore veniam ut consequat nulla.
+                Minim ex nisi sunt qui. Do exercitation veniam mollit velit laborum magna commodo id aute mollit aute
+                adipisicing.
+            </p>
         </div>
 
 
