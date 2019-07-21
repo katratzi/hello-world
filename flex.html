@@ -25,7 +25,7 @@
         }
 
 
-        
+
 
         #container {
             margin: auto;
@@ -41,14 +41,15 @@
 
         /* our flex items */
         img {
-            height: 100%;
+            
             height: 200px;
             margin: 4px;
             padding: 2px;
             border: 1px solid #444;
             /* box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2); */
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            /* flex: 1; */ /* stretchy images */
+            /* flex: 1; */
+            /* stretchy images */
         }
 
         h1 {
@@ -56,11 +57,12 @@
             text-transform: capitalize;
             /* flex: 2; */
         }
+
         h1.end {
             align-self: flex-end;
             text-transform: uppercase;
         }
-        
+
         hr {
             margin: 40px;
             box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2);
@@ -68,18 +70,50 @@
 
         /* non flex */
         #nocontainer {
-            margin: auto;            
+            margin: auto;
             width: 80%;
-            min-width: 640px;            
+            min-width: 640px;
             text-align: center;
         }
 
         #nocontainer h1 {
             display: inline;
         }
+
         #nocontainer img {
-         /* so these are inline by default and so they
+            /* so these are inline by default and so they
          are aligned center with the tex-align property of the nocontainer */
+        }
+
+        #anothercontainer {
+            margin: auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 80%;
+            min-width: 640px;      
+            
+        }
+
+        .item {
+            flex-grow: 1;
+            overflow: hidden;
+            width: 200px;
+            border: 1px solid #444;
+            
+        }
+
+        /* now these are within the item div */
+        /* so we can change their display to block and auto the margin */
+        .item img {
+            display: block;
+            width: 100%;
+            height: auto;
+            /* override to clear border, shadow etc */
+            border: none;
+            box-shadow: none;
+            padding: 0;
+            margin: 0;
         }
     </style>
 
@@ -106,7 +140,7 @@
         <h1 class="end">fin</h1>
 
     </div>
-<hr>
+    <hr>
     <div id="nocontainer">
         <img src="img/random (1).jpg">
         <h1>hello</h1>
@@ -125,6 +159,27 @@
         <img src="img/random (13).jpg">
         <img src="img/random (14).jpg">
         <h1 class="end">fin</h1>
+
+    </div>
+
+    <hr>
+
+    <div id="anothercontainer">
+        <div class="item"><img src="img/random (1).jpg"></div>
+        <div class="item"><img src="img/random (2).jpg"></div>
+        <div class="item"><img src="img/random (3).jpg"></div>
+        <div class="item"><img src="img/random (4).jpg"></div>
+        <div class="item"><img src="img/random (5).jpg"></div>
+        <div class="item"><img src="img/random (6).jpg"></div>
+        <div class="item"><img src="img/random (7).jpg"></div>
+        <div class="item"><img src="img/random (8).jpg"></div>
+        <div class="item"><img src="img/random (9).jpg"></div>
+        <div class="item"><img src="img/random (10).jpg"></div>
+        <div class="item"><img src="img/random (11).jpg"></div>
+        <div class="item"><img src="img/random (12).jpg"></div>
+        <div class="item"><img src="img/random (13).jpg"></div>
+        <div class="item"><img src="img/random (14).jpg"></div>
+
 
     </div>
 </body>
