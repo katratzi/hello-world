@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flexing</title>
+    <style>
+        * {
+            /* border: 1px solid red; */
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* my sizes */
+        :root {
+            /* --polaroid-width: 200px;
+            --badge-size: 48px;
+            --polaroid-corners: calc(var(--badge-size) /2);
+            --border-color: #808080; */
+        }
+
+        body {
+            background: #eeeeee;
+            font-family: 'Poppins', 'Roboto', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            line-height: 1.5em;
+        }
+
+
+        
+
+        #container {
+            margin: auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 80%;
+            min-width: 640px;
+            /* justify-content: space-between; */
+            /* justify-content: center; */
+            justify-content: space-evenly;
+        }
+
+        /* our flex items */
+        img {
+            height: 100%;
+            height: 200px;
+            margin: 4px;
+            padding: 2px;
+            border: 1px solid #444;
+            /* box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2); */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            /* flex: 1; */ /* stretchy images */
+        }
+
+        h1 {
+            align-self: center;
+            text-transform: capitalize;
+            /* flex: 2; */
+        }
+        h1.end {
+            align-self: flex-end;
+            text-transform: uppercase;
+        }
+        
+        hr {
+            margin: 40px;
+            box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        /* non flex */
+        #nocontainer {
+            margin: auto;            
+            width: 80%;
+            min-width: 640px;            
+            text-align: center;
+        }
+
+        #nocontainer h1 {
+            display: inline;
+        }
+        #nocontainer img {
+         /* so these are inline by default and so they
+         are aligned center with the tex-align property of the nocontainer */
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="container">
+        <img src="img/random (1).jpg">
+        <h1>hello</h1>
+        <img src="img/random (2).jpg">
+        <h1>world</h1>
+        <img src="img/random (3).jpg">
+        <img src="img/random (4).jpg">
+        <img src="img/random (5).jpg">
+        <img src="img/random (6).jpg">
+        <img src="img/random (7).jpg">
+        <img src="img/random (8).jpg">
+        <img src="img/random (9).jpg">
+        <img src="img/random (10).jpg">
+        <img src="img/random (11).jpg">
+        <img src="img/random (12).jpg">
+        <img src="img/random (13).jpg">
+        <img src="img/random (14).jpg">
+        <h1 class="end">fin</h1>
+
+    </div>
+<hr>
+    <div id="nocontainer">
+        <img src="img/random (1).jpg">
+        <h1>hello</h1>
+        <img src="img/random (2).jpg">
+        <h1>world</h1>
+        <img src="img/random (3).jpg">
+        <img src="img/random (4).jpg">
+        <img src="img/random (5).jpg">
+        <img src="img/random (6).jpg">
+        <img src="img/random (7).jpg">
+        <img src="img/random (8).jpg">
+        <img src="img/random (9).jpg">
+        <img src="img/random (10).jpg">
+        <img src="img/random (11).jpg">
+        <img src="img/random (12).jpg">
+        <img src="img/random (13).jpg">
+        <img src="img/random (14).jpg">
+        <h1 class="end">fin</h1>
+
+    </div>
+</body>
+
+</html>
