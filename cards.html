@@ -45,9 +45,9 @@
         border-bottom: 1px solid var(--border-color);
       }
 
-      .polaroid * {
+      /* .polaroid * {
         pointer-events: none;
-      }
+      } */
 
       div.badge {
         position: absolute;
@@ -124,9 +124,9 @@
       <div class="polaroid">
         <div>
           <img src="img/random (1).jpg" alt="alter" style="width:100%" />
-          <div class="badge">5</div>
+          <div class="badge" data-rating="5" contentEditable="true">5</div>
         </div>
-        <div class="description">
+        <div contentEditable="true" class="description">
           <p>Hello World</p>
           <p>Hello World</p>
           <p>Hello World</p>
@@ -138,7 +138,7 @@
       <div class="polaroid">
         <div class="test">
           <img src="img/random (1).png" alt="ego" style="width:100%" />
-          <div class="badge">5</div>
+          <div class="badge" data-rating="4">5</div>
         </div>
 
         <div class="description ">
@@ -149,7 +149,7 @@
       <div class="polaroid">
         <div>
           <img src="img/random (2).jpg" alt="alter" style="width:100%" />
-          <div class="badge">5</div>
+          <div class="badge" data-rating="3">5</div>
         </div>
         <div class="description">
           <p>Hello World</p>
@@ -199,7 +199,7 @@
       <div class="polaroid">
         <div>
           <img src="img/random (14).jpg" alt="alter" style="width:100%" />
-          <div class="badge">5</div>
+          <div class="badge" data-rating="5">5</div>
         </div>
         <div class="description">
           <p>Hello World</p>
@@ -231,20 +231,23 @@
       const polaroids = [...document.querySelectorAll(".polaroid")];
 
       function toggleOn(e) {
-        //e.stopPropagation();
+        e.stopPropagation();
         console.log(this);
         this.classList.add("highlight");
 
         const badge = this.querySelector(".badge");
         badge.classList.add("highlight");
-        console.log(badge);
+        console.log("dataset" + badge.dataset.rating);
+
+        const total = badge.innerHTML * 4;
+        console.log("dataset innter." + badge.innerHTML + " " + total);
 
         // const badge = this.getElementById("badge");
         // console.log(badge);
       }
 
       function toggleOff(e) {
-        //e.stopPropagation();
+        e.stopPropagation();
         //console.log(this);
         this.classList.remove("highlight");
         const badge = this.querySelector(".badge");
@@ -253,8 +256,11 @@
 
       console.log(polaroids);
       polaroids.forEach(polaroid => {
-        polaroid.addEventListener("mouseover", toggleOn, { capture: true });
-        polaroid.addEventListener("mouseout", toggleOff, { capture: true });
+        // polaroid.addEventListener("mouseover", toggleOn, {});
+        // polaroid.addEventListener("mouseout", toggleOff, {});
+
+        polaroid.addEventListener("mouseenter", toggleOn, {});
+        polaroid.addEventListener("mouseleave", toggleOff, {});
       });
     </script>
   </body>
