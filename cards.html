@@ -75,8 +75,13 @@
 
       .badge.highlight {
         background-color: #101010;
-        color: white;
+        color: white;        
         border: none;
+        transform: scale(1.2) !important;        
+        transition: all 0.2s ease; 
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+          border-radius: 25%;     
       }
 
       div.description {
@@ -114,14 +119,14 @@
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4),
           0 6px 20px 0 rgba(0, 0, 0, 0.4);
         transform: scale(1.01);
-        transition: all 0.5s ease;
+        transition: all 0.5s ease;        
       }
     </style>
   </head>
 
   <body>
     <div id="gridify">
-      <div class="polaroid">
+      <div class="polaroid" data-group="A">
         <div>
           <img src="img/random (1).jpg" alt="alter" style="width:100%" />
           <div class="badge" data-rating="5" contentEditable="true">5</div>
@@ -135,7 +140,7 @@
         </div>
       </div>
 
-      <div class="polaroid">
+      <div class="polaroid" data-group="A">
         <div class="test">
           <img src="img/random (1).png" alt="ego" style="width:100%" />
           <div class="badge" data-rating="4">5</div>
@@ -146,7 +151,7 @@
         </div>
       </div>
 
-      <div class="polaroid">
+      <div class="polaroid" data-group="A">
         <div>
           <img src="img/random (2).jpg" alt="alter" style="width:100%" />
           <div class="badge" data-rating="3">5</div>
@@ -156,7 +161,7 @@
         </div>
       </div>
 
-      <div class="polaroid">
+      <div class="polaroid" data-group="B">
         <div>
           <img src="img/random (4).jpg" alt="alter" style="width:100%" />
           <div class="badge">5</div>
@@ -166,7 +171,7 @@
         </div>
       </div>
 
-      <div class="polaroid">
+      <div class="polaroid" data-group="B">
         <div>
           <img src="img/random (3).jpg" alt="alter" style="width:100%" />
           <div class="badge">5</div>
@@ -176,7 +181,7 @@
         </div>
       </div>
 
-      <div class="polaroid">
+      <div class="polaroid" data-group="B">
         <div>
           <img src="img/random (10).jpg" alt="alter" style="width:100%" />
           <div class="badge">5</div>
@@ -186,7 +191,7 @@
         </div>
       </div>
 
-      <div class="polaroid">
+      <div class="polaroid" data-group="C"">
         <div>
           <img src="img/random (12).jpg" alt="alter" style="width:100%" />
           <div class="badge">5</div>
@@ -196,7 +201,7 @@
         </div>
       </div>
 
-      <div class="polaroid">
+      <div class="polaroid" data-group="C"">
         <div>
           <img src="img/random (14).jpg" alt="alter" style="width:100%" />
           <div class="badge" data-rating="5">5</div>
@@ -206,7 +211,7 @@
         </div>
       </div>
 
-      <div class="polaroid">
+      <div class="polaroid ">
         <div>
           <img src="img/random (16).jpg" alt="alter" style="width:100%" />
           <div class="badge">5</div>
@@ -230,28 +235,53 @@
     <script>
       const polaroids = [...document.querySelectorAll(".polaroid")];
 
-      function toggleOn(e) {
-        e.stopPropagation();
-        console.log(this);
-        this.classList.add("highlight");
+      function toggleBadge(e) {
+        
+        //  get the data group
+        const myGroup = this.dataset.group;
+        // console.log(myGroup);
+        // toggle all of my group off
+        toggleGroupOff(myGroup);
 
+        // now just turn me on
         const badge = this.querySelector(".badge");
         badge.classList.add("highlight");
-        console.log("dataset" + badge.dataset.rating);
 
+        //console.log("dataset" + badge.dataset.rating);
         const total = badge.innerHTML * 4;
-        console.log("dataset innter." + badge.innerHTML + " " + total);
+        // what's the total? :)
+        console.log("dataset inner." + badge.innerHTML + " " + total);
+      }
 
-        // const badge = this.getElementById("badge");
-        // console.log(badge);
+      function toggleOn(e) {
+        // e.stopPropagation();
+        // console.log(this);
+        this.classList.add("highlight");
       }
 
       function toggleOff(e) {
-        e.stopPropagation();
-        //console.log(this);
-        this.classList.remove("highlight");
-        const badge = this.querySelector(".badge");
-        badge.classList.remove("highlight");
+        // e.stopPropagation();        
+        this.classList.remove("highlight");        
+      }
+
+      // toggle all highglights off
+      function toggleAllOthersOff() {
+        polaroids.forEach(polaroid => {
+          polaroid.classList.remove("highlight");
+          const badge = polaroid.querySelector(".badge");
+          polaroid.classList.remove("highlight");
+        });
+      }
+
+      // toggle only badges in my group off
+      function toggleGroupOff(myGroup) {
+        polaroids.forEach(polaroid => {
+          // if in my group remove the highlight class
+          if (polaroid.dataset.group == myGroup) {                       
+            const badge = polaroid.querySelector(".badge");
+            badge.classList.remove("highlight");
+          }          
+        });
       }
 
       console.log(polaroids);
@@ -261,6 +291,7 @@
 
         polaroid.addEventListener("mouseenter", toggleOn, {});
         polaroid.addEventListener("mouseleave", toggleOff, {});
+        polaroid.addEventListener("mousedown", toggleBadge, {});
       });
     </script>
   </body>
