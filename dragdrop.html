@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drag and drop</title>
+    <style>
+      * {
+        /* border: 1px solid red; */
+        box-sizing: border-box;
+        position: relative;
+      }
+
+      body {
+        background: #eeeeee;
+        font-family: "Trebuchet MS", sans-serif;
+        line-height: 1.5em;
+      }
+
+      .card {
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+        padding: 10px;
+        margin: 10px;
+        border: solid 1px #111;
+        color: white;
+        font-size: 3em;
+      }
+
+      .card1 {
+        background-color: #ed3456;
+      }
+
+      .card2 {
+        background-color: #58355e;
+      }
+      .card3 {
+        background-color: #7ae7c7;
+      }
+      .card4 {
+        background-color: #d6ffb7;
+      }
+      .card5 {
+        background-color: #fff689;
+      }
+
+      .destination {
+        min-width: 200px;
+        max-width: 300px;
+        min-height: 200px;
+        display: block;
+        padding: 10px;
+        margin: 10px;
+        border: solid 1px #111;
+        color: #444;
+        font-size: 1em;
+      }
+      .destination h1 { 
+        padding: 0px;
+        margin: 0px;        
+        font-size: 1em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="dragElement1" draggable="true" class="card card1" ondragstart="dragStart(event)">1</div>
+    <div id="dragElement2" draggable="true" class="card card2" ondragstart="dragStart(event)">2</div>
+    <div id="dragElement3" draggable="true" class="card card3" ondragstart="dragStart(event)">3</div>
+    <div id="dragElement4" draggable="true" class="card card4" ondragstart="dragStart(event)">4</div>
+    <div id="dragElement5" draggable="true" class="card card5" ondragstart="dragStart(event)">5</div>
+
+    <div class="destination" ondragover="allowDrop(event)" ondrop="drop(event)">
+      <h1>Destination</h1>
+    </div>
+  </body>
+
+  <script>
+      var id;
+    function allowDrop(ev) {
+    //   console.log("allowDrop");
+      ev.preventDefault();
+    }
+
+    function dragStart(ev) {
+            // console.log(ev);
+            id = ev.target.id;
+            // console.log("id is" + id + "\n" + ev);
+    //   ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev)
+    {
+        ev.target.append(document.getElementById(id));
+    }
+
+  </script>
+</html>
