@@ -75,22 +75,37 @@
   </body>
 
   <script>
-      var id;
+    //var id;
     function allowDrop(ev) {
-    //   console.log("allowDrop");
+      //   console.log("allowDrop");
       ev.preventDefault();
     }
 
     function dragStart(ev) {
-            // console.log(ev);
-            id = ev.target.id;
-            // console.log("id is" + id + "\n" + ev);
-    //   ev.dataTransfer.setData("text", ev.target.id);
+      // console.log(ev);
+      //id = ev.target.id;
+      ev.dataTransfer.setData("text", ev.target.id);
+      // console.log("id is" + id + "\n" + ev);
+      //   ev.dataTransfer.setData("text", ev.target.id);
     }
 
-    function drop(ev, ele)
-    {
+    function drop(ev, ele) {
+      // console.log(ev.target);
+      var id = ev.dataTransfer.getData("text");
+      if(ev.target.classList.contains("card"))
+      {
+        console.log("log dropped on card" + ev.target.id);
+        var node = document.getElementById(ev.target.id);
+        ele.insertBefore(document.getElementById(id), node);
+      }
+      else{
+        console.log("log dropped on plain");
         ele.appendChild(document.getElementById(id));
+      }
+      
+      
+      // Clear the drag data cache (for all formats/types)
+      ev.dataTransfer.clearData();
     }
 
   </script>
