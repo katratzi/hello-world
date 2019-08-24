@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic Styling</title>
+    <style>
+      * {
+        /* border: 1px solid red; */
+        box-sizing: border-box;
+      }
+
+      :root {
+        --polaroid-width: 300px;
+        --polaroid-corners: 16px;
+        --button-size: 64px;
+      }
+
+      body {
+        background: #eeeeee;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        line-height: 1.5em;
+      }
+
+      .nav {
+        position: -webkit-sticky;
+        position: sticky !important;
+        top: 0px;
+      }
+
+      /* navigation */
+      /* we remove the decorations with list style */
+      ul {
+        list-style-type: none;
+        padding: 20px;
+        text-align: center;
+        background: #cccccc;
+      }
+
+      li {
+        display: inline;
+      }
+
+      /* add my own decorator for nav */
+      li:before {
+        content: "~";
+        padding-right: 8px;
+        color: blue;
+      }
+
+      /* but no for the 1st child */
+      li:first-child:before {
+        content: "";
+      }
+
+      /* images in paragraphs are nice and small */
+      p img {
+        width: 256px;
+        /* aligns inline elements together */
+        vertical-align: middle;
+      }
+
+      /* it takes width from above to breaks ratio, override with auto */
+      img.thumb {
+        height: 96px;
+        width: auto;
+      }
+
+      #container {
+        border: 1px #cccccc solid;
+        padding: 20px 20px 40px 10px;
+        margin-top: 30px;
+        width: 800px;
+        margin: 30px auto;
+        /* overflow: hidden; Note..sticky doesn't work with this*/
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <h1>Heading h1</h1>
+      <!-- ul>li*8 -->
+      <ul class="nav">
+        <li>Hello</li>
+        <li>World</li>
+        <li>This</li>
+        <li>is</li>
+        <li>a</li>
+        <li>test</li>
+        <li>Navigation</li>
+        <li>things</li>
+      </ul>
+      <h1>Hello World</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco ,
+        <img class="thumb" src="img/random (18).jpg" /> Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+        qui officia deserunt mollit anim id est laborum.
+      </p>
+      <div>
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+        </ul>
+      </div>
+
+      <h3>Hmmm</h3>
+
+      <img src="img/random (4).jpg" alt="" class="thumb" />
+      <img src="img/random (19).jpg " alt="" class="thumb" />
+      <img src="img/random (6).jpg" alt="" class="thumb" />
+
+      <p>
+        Maecenas molestie diam ac quam gravida, nec fermentum felis commodo.
+        Vivamus quis lobortis eros, non rutrum velit. Aenean gravida enim
+        porttitor nulla malesuada aliquam. Vestibulum volutpat sapien at eros
+        fermentum, id posuere urna faucibus. Nunc quis justo gravida, elementum
+        purus eu, mattis risus.
+        <span class="emp">
+          Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean
+          semper ultricies mauris. Sed interdum ipsum vel pulvinar lobortis.
+        </span>
+      </p>
+
+      <h1>Goodbye World</h1>
+      <img src="img/random (9).jpg" alt="" />
+
+      <p>
+        Maecenas molestie diam ac quam gravida, nec fermentum felis commodo.
+        Vivamus quis lobortis eros, non rutrum velit. Aenean gravida enim
+        porttitor nulla malesuada aliquam. Vestibulum volutpat sapien at eros
+        fermentum, id posuere urna faucibus. Nunc quis justo gravida, elementum
+        purus eu, mattis risus.
+        <span class="emp">
+          Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean
+          semper ultricies mauris. Sed interdum ipsum vel pulvinar lobortis.
+        </span>
+      </p>
+
+      <img src="img/random (7).jpg" alt="" />
+      <h1>All the worlds a stage</h1>
+      <p>
+        Id velit minim ad laboris culpa velit. Eiusmod in in fugiat et. Deserunt
+        ex magna laborum est aliqua voluptate irure reprehenderit occaecat
+        velit.
+      </p>
+      <img src="img/random (20).jpg" alt="" />
+      <p>
+        Veniam aliquip proident id duis deserunt qui dolor nostrud reprehenderit
+        velit. Nostrud magna Lorem voluptate reprehenderit sit commodo veniam
+        ipsum exercitation magna duis. Et ea elit qui commodo et et anim
+        excepteur duis ex magna magna. Dolor ullamco nulla sit pariatur. Velit
+        anim veniam non dolor dolore anim amet commodo cupidatat dolor.
+      </p>
+    </div>
+  </body>
+</html>

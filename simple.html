@@ -1,331 +1,371 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <title> Basic Styling</title>
+  <head>
+    <title>Basic Styling</title>
     <style>
-        * {
-            border: 1px solid red;
-            box-sizing: border-box;
-        }
+      * {
+        border: 1px solid red;
+        box-sizing: border-box;
+      }
 
-        :root {
-            --polaroid-width: 300px;
-            --polaroid-corners: 16px;
-            --button-size: 64px;
-        }
+      :root {
+        --polaroid-width: 300px;
+        --polaroid-corners: 16px;
+        --button-size: 64px;
+      }
 
+      body {
+        background: #eeeeee;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        line-height: 1.5em;
+      }
 
-        body {
-            background: #eeeeee;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            line-height: 1.5em;
-        }
+      .nav {
+        position: -webkit-sticky;
+        position: sticky !important;
+        top: 20px;
+      }
 
-        /* navigation */
-        /* we remove the decorations with list style */
-        ul {
-            list-style-type: none;
-            padding: 20;
-            text-align: center;
-        }
+      /* navigation */
+      /* we remove the decorations with list style */
+      ul {
+        list-style-type: none;
+        padding: 20;
+        text-align: center;
+      }
 
-        li {
-            display: inline;
-        }
+      li {
+        display: inline;
+      }
 
-        /* add my own decorator for nav */
-        li:before {
-            content: "~";
-            padding-right: 8px;
-            color: blue;
-        }
+      /* add my own decorator for nav */
+      li:before {
+        content: "~";
+        padding-right: 8px;
+        color: blue;
+      }
 
-        /* but no for the 1st child */
-        li:nth-child(1):before {
-            content: "";
-        }
+      /* but no for the 1st child */
+      li:nth-child(1):before {
+        content: "";
+      }
 
-        /* images in paragraphs are nice and small */
-        p img {
-            width: 256px;
-            /* aligns inline elements together */
-            vertical-align: middle;
-        }
+      /* images in paragraphs are nice and small */
+      p img {
+        width: 256px;
+        /* aligns inline elements together */
+        vertical-align: middle;
+      }
 
-        /* it takes width from above to breaks ratio, override with auto */
-        img.thumb {
-            height: 96px;
-            width: auto;
-        }
+      /* it takes width from above to breaks ratio, override with auto */
+      img.thumb {
+        height: 96px;
+        width: auto;
+      }
 
-        .relativeLeft {
-            position: relative;
-            left: 100px;
-            bottom: 10px;
-        }
+      .relativeLeft {
+        position: relative;
+        left: 100px;
+        bottom: 10px;
+      }
 
-        .fixme {
-            /* note order of images defines what sits on top */
-            /* fix with z */
-            z-index: 1;
-            position: fixed;
-            left: 100px;
-            bottom: 10px;
-        }
+      .fixme {
+        /* note order of images defines what sits on top */
+        /* fix with z */
+        z-index: 1;
+        position: fixed;
+        left: 100px;
+        bottom: 10px;
+      }
 
-        .absme {
-            position: absolute;
-            left: 200px;
-            top: 200px;
-        }
+      .absme {
+        position: absolute;
+        left: 200px;
+        top: 200px;
+      }
 
-        .relme {
-            position: relative;
-            /* left: 1px;             */
-        }
+      .relme {
+        position: relative;
+        /* left: 1px;             */
+      }
 
-        .absmeSmall {
-            position: absolute;
-            left: 20px;
-            top: 20px;
-        }
+      .absmeSmall {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+      }
 
-        /* can't get this to work? */
-        /* I hate this navigation anyway :P */
-        .stickme {
-            position: sticky;
-            top: 10px;
-            right: 100px;
-        }
+      /* can't get this to work? */
+      /* I hate this navigation anyway :P */
+      .stickme {
+        position: sticky;
+        top: 10px;
+        right: 100px;
+      }
 
-        div.polaroid {
-            position: relative;
-            width: var(--polaroid-width);
-            background-color: white;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            margin-bottom: 25px;
-            /* center */
-            display: block;
-            margin: 10px auto;
-            /* line-height: 0px; */
-        }
+      div.polaroid {
+        position: relative;
+        width: var(--polaroid-width);
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin-bottom: 25px;
+        /* center */
+        display: block;
+        margin: 10px auto;
+        /* line-height: 0px; */
+      }
 
-        /* testing...I want to override max width */
-        div.polaroid img {
-            width: 100% !important;
-            /* this fixes the gap i was seeing */
-            /* could also be done by setting the line height to 0px */
-            /* as being inline...you get the line heigth :) */
-            display: block;
-        }
+      /* testing...I want to override max width */
+      div.polaroid img {
+        width: 100% !important;
+        /* this fixes the gap i was seeing */
+        /* could also be done by setting the line height to 0px */
+        /* as being inline...you get the line heigth :) */
+        display: block;
+      }
 
-        div.button {
-            position: absolute;
+      div.button {
+        position: absolute;
 
-            background: yellow;
-            border-radius: 100%;
-            width: var(--button-size);
-            height: var(--button-size);
-            text-align: center;
-            /* get the half size for easy calculation */
-            --half-button-size: calc(var(--button-size) / -2);
+        background: yellow;
+        border-radius: 100%;
+        width: var(--button-size);
+        height: var(--button-size);
+        text-align: center;
+        /* get the half size for easy calculation */
+        --half-button-size: calc(var(--button-size) / -2);
 
-            bottom: var(--half-button-size);
-            left: calc(calc(var(--polaroid-width) / 2) + var(--half-button-size));
+        bottom: var(--half-button-size);
+        left: calc(calc(var(--polaroid-width) / 2) + var(--half-button-size));
 
-            /* align vertically with grid */
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr;
-            align-items: center;
-        }
+        /* align vertically with grid */
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        align-items: center;
+      }
 
-        div.container {
-            text-align: center;
-            padding: 10px 20px;
-        }
+      div.container {
+        text-align: center;
+        padding: 10px 20px;
+      }
 
-        .test {
-            position: relative;
-        }
+      .test {
+        position: relative;
+      }
 
-        .centered {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 50%;
-        }
+      .centered {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+      }
 
-        #container {
-            border: 1px #cccccc solid;
-            padding: 20px 20px 40px 10px;
-            margin-top: 30px;
-            width: 800px;
-            margin: 30px auto;
-            overflow: hidden;
-        }
+      #container {
+        border: 1px #cccccc solid;
+        padding: 20px 20px 40px 10px;
+        margin-top: 30px;
+        width: 800px;
+        margin: 30px auto;
+        overflow: hidden;
+      }
 
-        .emp {
-            color: red;
-            font-weight: bold;
-        }
+      .emp {
+        color: red;
+        font-weight: bold;
+      }
 
-        .side-a {
-            float: left;
-            width: 50%;
-        }
+      .side-a {
+        float: left;
+        width: 50%;
+      }
     </style>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div id="container">
-
-        <h1 class="stickme">Heading h1</h1>
-        <!-- ul>li*8 -->
+      <h1 class="stickme">Heading h1</h1>
+      <!-- ul>li*8 -->
+      <ul>
+        <li>Hello</li>
+        <li>World</li>
+        <li>This</li>
+        <li>is</li>
+        <li>a</li>
+        <li>test</li>
+        <li>Navigation</li>
+        <li>things</li>
+      </ul>
+      <h1>Hello World</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco ,
+        <img class="thumb" src="img/random (18).jpg" /> Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+        qui officia deserunt mollit anim id est laborum.
+      </p>
+      <div class="nav">
         <ul>
-            <li>Hello</li>
-            <li>World</li>
-            <li>This</li>
-            <li>is</li>
-            <li>a</li>
-            <li>test</li>
-            <li>Navigation</li>
-            <li>things</li>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
         </ul>
-        <h1>Hello World</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco ,
-            <img class="thumb" src="img/random (18).jpg"> Duis aute irure dolor in reprehenderit in voluptate
-            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-            in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+
+      <img src="img/random (1).jpg" />
+      <img src="img/random (2).jpg" />
+      <img src="img/random (3).jpg" />
+
+      <h3>Hmmm</h3>
+
+      <img src="img/random (4).jpg" alt="" class="thumb" />
+      <img src="img/random (19).jpg " alt="" class="thumb" />
+      <img src="img/random (6).jpg" alt="" class="thumb" />
+      <img src="img/random (5).jpg" alt="" class="thumb" />
+
+      <img src="img/random (16).jpg" alt="" class="centered" />
+
+      <p>
+        Maecenas molestie diam ac quam gravida, nec fermentum felis commodo.
+        Vivamus quis lobortis eros, non rutrum velit. Aenean gravida enim
+        porttitor nulla malesuada aliquam. Vestibulum volutpat sapien at eros
+        fermentum, id posuere urna faucibus. Nunc quis justo gravida, elementum
+        purus eu, mattis risus.
+        <span class="emp">
+          Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean
+          semper ultricies mauris. Sed interdum ipsum vel pulvinar lobortis.
+        </span>
+      </p>
+
+      <h1>Goodbye World</h1>
+      <p>
+        Maecenas molestie diam ac quam gravida, nec fermentum felis commodo.
+        Vivamus quis lobortis eros, non rutrum velit. Aenean gravida enim
+        porttitor nulla malesuada aliquam. Vestibulum volutpat sapien at eros
+        fermentum, id posuere urna faucibus. Nunc quis justo gravida, elementum
+        purus eu, mattis risus.
+        <span class="emp">
+          Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean
+          semper ultricies mauris. Sed interdum ipsum vel pulvinar lobortis.
+        </span>
+      </p>
+
+      <div class="polaroid">
+        <div class="test">
+          <img src="img/random (17).jpg" alt="alter" style="width:100%" />
+          <div class="button">hello</div>
+        </div>
+        <div class="container">
+          <p>Hello WOrld</p>
+        </div>
+      </div>
+
+      <div class="polaroid">
+        <div class="test">
+          <img src="img/random (19).jpg" alt="ego" style="width:100%" />
+          <div contenteditable="true" class="button">hello</div>
+        </div>
+
+        <div class="container">
+          <p>Goodbye world</p>
+        </div>
+      </div>
+
+      <div>
+        <img src="img/random (6).jpg" class="fixme" />
+        <p>
+          Ullamco ut amet non quis. Exercitation amet ea culpa dolor deserunt
+          duis sunt ad nisi minim. Laboris amet aute commodo duis ullamco. In
+          laboris quis mollit deserunt sit non incididunt et sunt voluptate
+          adipisicing. Anim ipsum aliqua nisi proident nostrud duis esse
+          excepteur laboris. Sit sunt aute mollit aute aliquip deserunt do irure
+          enim.
         </p>
+      </div>
 
-        <img src="img/random (1).jpg">
-        <img src="img/random (2).jpg">
-        <img src="img/random (3).jpg">
-
-        <h3>Hmmm</h3>
-
-        <img src="img/random (4).jpg" alt="" class="thumb">
-        <img src="img/random (19).jpg " alt="" class="thumb">
-        <img src="img/random (6).jpg" alt="" class="thumb">
-        <img src="img/random (5).jpg" alt="" class="thumb">
-
-        <img src="img/random (16).jpg" alt="" class="centered">
-
-        <p>Maecenas molestie diam ac quam gravida, nec fermentum felis commodo. Vivamus quis lobortis eros, non
-            rutrum velit. Aenean gravida enim porttitor nulla malesuada aliquam. Vestibulum volutpat sapien at eros
-            fermentum, id posuere urna faucibus. Nunc quis justo gravida, elementum purus eu, mattis risus. <span
-                class="emp"> Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean semper ultricies
-                mauris. Sed interdum ipsum vel pulvinar lobortis. </span>
+      <div>
+        <p>
+          Amet ullamco occaecat elit adipisicing minim tempor ut. Nostrud
+          <img src="img/random (6).jpg" class="relativeLeft" /> cupidatat tempor
+          pariatur et. Ex cupidatat labore deserunt officia exercitation labore
+          nulla exercitation. Laboris elit sint est exercitation reprehenderit
+          ad aliquip. Tempor enim dolor officia esse velit ad consectetur ut eu
+          incididunt pariatur irure et aliquip. Nostrud culpa fugiat excepteur
+          consequat cupidatat in laboris laboris. Fugiat veniam sint qui enim
+          enim nulla commodo excepteur quis deserunt.
         </p>
+      </div>
 
-
-
-        <h1>Goodbye World</h1>
-        <p>Maecenas molestie diam ac quam gravida, nec fermentum felis commodo. Vivamus quis lobortis eros, non
-            rutrum velit. Aenean gravida enim porttitor nulla malesuada aliquam. Vestibulum volutpat sapien at eros
-            fermentum, id posuere urna faucibus. Nunc quis justo gravida, elementum purus eu, mattis risus. <span
-                class="emp"> Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean semper ultricies
-                mauris. Sed interdum ipsum vel pulvinar lobortis. </span>
+      <div class="testparent">
+        <p>
+          <img class="absme" src="img/random (8).jpg" /> Occaecat anim nostrud
+          nulla magna id tempor deserunt fugiat. Aliquip culpa Lorem nostrud
+          dolore velit minim quis pariatur sit consectetur esse magna nostrud
+          aliqua. Quis cupidatat adipisicing reprehenderit deserunt ad consequat
+          aliqua. Id enim veniam velit labore exercitation tempor dolor.
+          Excepteur est id veniam laborum ut non ad amet. Esse irure adipisicing
+          do do cillum ex in anim.
         </p>
-
-        <div class="polaroid">
-            <div class="test">
-                <img src="img/random (17).jpg" alt="alter" style="width:100%">
-                <div class="button">hello</div>
+        <p>
+          <img class="absme" src="img/random (8).jpg" /> Occaecat anim nostrud
+          nulla magna id tempor deserunt fugiat. Aliquip culpa Lorem nostrud
+          dolore velit minim quis pariatur sit consectetur esse magna nostrud
+          aliqua. Quis cupidatat adipisicing reprehenderit deserunt ad consequat
+          aliqua. Id enim veniam velit labore exercitation tempor dolor.
+          Excepteur est id veniam laborum ut non ad amet. Esse irure adipisicing
+          do do cillum ex in anim.
+        </p>
+        <p>
+          <img class="absme" src="img/random (8).jpg" /> Occaecat anim nostrud
+          nulla magna id tempor deserunt fugiat. Aliquip culpa Lorem nostrud
+          dolore velit minim quis pariatur sit consectetur esse magna nostrud
+          aliqua. Quis cupidatat adipisicing reprehenderit deserunt ad consequat
+          aliqua. Id enim veniam velit labore exercitation tempor dolor.
+          Excepteur est id veniam laborum ut non ad amet. Esse irure adipisicing
+          do do cillum ex in anim.
+        </p>
+        <!-- nested absolute positions as child of relative -->
+        <div class="relme">
+          <h1>test</h1>
+          <div class="absmeSmall">
+            <img src="img/random (9).jpg" />
+            <div class="absmeSmall">
+              <img src="img/random (9).jpg" />
+              <div class="absmeSmall">
+                <img src="img/random (9).jpg" />
+              </div>
             </div>
-            <div class="container">
-                <p>Hello WOrld</p>
-            </div>
+          </div>
+        </div>
+        <p>
+          Minim nisi duis incididunt dolore officia cillum enim ex eu officia
+          sint in. Lorem magna eiusmod esse labore esse aliquip ad ipsum officia
+          eu ea. Laboris tempor excepteur dolor in consequat minim sunt id
+          consequat non sit consequat excepteur do. Laborum ullamco deserunt
+          dolore veniam ut consequat nulla. Minim ex nisi sunt qui. Do
+          exercitation veniam mollit velit laborum magna commodo id aute mollit
+          aute adipisicing.
+        </p>
+        <div class="stickme">
+          <img src="img/random (13).jpg" />
         </div>
 
-        <div class="polaroid">
-            <div class="test">
-                <img src="img/random (19).jpg" alt="ego" style="width:100%">
-                <div contenteditable="true" class="button">hello</div>
-            </div>
-
-            <div class="container">
-                <p>Goodbye world</p>
-            </div>
-        </div>
-
-        <div>
-            <img src="img/random (6).jpg" class="fixme">
-            <p>Ullamco ut amet non quis. Exercitation amet ea culpa dolor deserunt duis sunt ad nisi minim. Laboris amet
-                aute commodo duis ullamco. In laboris quis mollit deserunt sit non incididunt et sunt voluptate
-                adipisicing. Anim ipsum aliqua nisi proident nostrud duis esse excepteur laboris. Sit sunt aute mollit
-                aute aliquip deserunt do irure enim.</p>
-        </div>
-
-        <div>
-
-            <p>Amet ullamco occaecat elit adipisicing minim tempor ut. Nostrud <img src="img/random (6).jpg"
-                    class="relativeLeft"> cupidatat tempor pariatur et. Ex cupidatat labore deserunt officia
-                exercitation labore nulla exercitation. Laboris elit sint est exercitation reprehenderit ad aliquip.
-                Tempor enim dolor officia esse velit ad consectetur ut eu incididunt pariatur irure et aliquip. Nostrud
-                culpa fugiat excepteur consequat cupidatat in laboris laboris. Fugiat veniam sint qui enim enim nulla
-                commodo excepteur quis deserunt.</p>
-        </div>
-
-        <div class="testparent">
-
-            <p> <img class="absme" src="img/random (8).jpg"> Occaecat anim nostrud nulla magna id tempor deserunt
-                fugiat. Aliquip culpa Lorem nostrud dolore velit minim quis pariatur sit consectetur esse magna nostrud
-                aliqua. Quis cupidatat adipisicing reprehenderit deserunt ad consequat aliqua. Id enim veniam velit
-                labore exercitation tempor dolor. Excepteur est id veniam laborum ut non ad amet. Esse irure adipisicing
-                do do cillum ex in anim.
-            </p>
-            <p> <img class="absme" src="img/random (8).jpg"> Occaecat anim nostrud nulla magna id tempor deserunt
-                fugiat. Aliquip culpa Lorem nostrud dolore velit minim quis pariatur sit consectetur esse magna nostrud
-                aliqua. Quis cupidatat adipisicing reprehenderit deserunt ad consequat aliqua. Id enim veniam velit
-                labore exercitation tempor dolor. Excepteur est id veniam laborum ut non ad amet. Esse irure adipisicing
-                do do cillum ex in anim.
-            </p>
-            <p> <img class="absme" src="img/random (8).jpg"> Occaecat anim nostrud nulla magna id tempor deserunt
-                fugiat. Aliquip culpa Lorem nostrud dolore velit minim quis pariatur sit consectetur esse magna nostrud
-                aliqua. Quis cupidatat adipisicing reprehenderit deserunt ad consequat aliqua. Id enim veniam velit
-                labore exercitation tempor dolor. Excepteur est id veniam laborum ut non ad amet. Esse irure adipisicing
-                do do cillum ex in anim.
-            </p>
-            <!-- nested absolute positions as child of relative -->
-            <div class="relme">
-                <h1>test</h1>
-                <div class="absmeSmall">
-                    <img src="img/random (9).jpg">
-                    <div class="absmeSmall">
-                        <img src="img/random (9).jpg">
-                        <div class="absmeSmall">
-                            <img src="img/random (9).jpg">
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <p>
-                Minim nisi duis incididunt dolore officia cillum enim ex eu officia sint in. Lorem magna eiusmod esse
-                labore esse aliquip ad ipsum officia eu ea. Laboris tempor excepteur dolor in consequat minim sunt id
-                consequat non sit consequat excepteur do. Laborum ullamco deserunt dolore veniam ut consequat nulla.
-                Minim ex nisi sunt qui. Do exercitation veniam mollit velit laborum magna commodo id aute mollit aute
-                adipisicing.
-            </p>
-            <div class="stickme">
-                <img src="img/random (13).jpg"></div>
-            <p>
-                Minim nisi duis incididunt dolore officia cillum enim ex eu officia sint in. Lorem magna eiusmod esse
-                labore esse aliquip ad ipsum officia eu ea. Laboris tempor excepteur dolor in consequat minim sunt id
-                consequat non sit consequat excepteur do. Laborum ullamco deserunt dolore veniam ut consequat nulla.
-                Minim ex nisi sunt qui. Do exercitation veniam mollit velit laborum magna commodo id aute mollit aute
-                adipisicing.
-            </p>
-        </div>
-
-
-
+        <p>
+          Minim nisi duis incididunt dolore officia cillum enim ex eu officia
+          sint in. Lorem magna eiusmod esse labore esse aliquip ad ipsum officia
+          eu ea. Laboris tempor excepteur dolor in consequat minim sunt id
+          consequat non sit consequat excepteur do. Laborum ullamco deserunt
+          dolore veniam ut consequat nulla. Minim ex nisi sunt qui. Do
+          exercitation veniam mollit velit laborum magna commodo id aute mollit
+          aute adipisicing.
+        </p>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
